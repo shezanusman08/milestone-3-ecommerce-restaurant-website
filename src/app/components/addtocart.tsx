@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { useShoppingCart } from "use-shopping-cart";
 import { urlFor } from "@/sanity/lib/image";
-
 export interface ProductCart {
   name: string;
   description: string;
