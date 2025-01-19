@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Playfair_Display, Poppins } from 'next/font/google'
 import { FaUserTie, FaUtensils, FaPizzaSlice } from "react-icons/fa";
 import { GiChefToque } from "react-icons/gi";
+import Link from 'next/link';
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 const poppins = Poppins({ weight: ['400', '500', '600', '700'], subsets: ['latin'] })
@@ -136,9 +137,9 @@ function ChefSection() {
         ))}
       </div>
       <div className="text-center mt-8">
-        <button className="px-6 py-2 border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white transition-colors">
+        <Link className="px-6 py-2 border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white transition-colors" href={'/team'}>
           See More
-        </button>
+        </Link>
       </div>
     </section>
   );
