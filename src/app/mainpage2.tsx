@@ -8,7 +8,7 @@ export default function FoodExperienceSection() {
       <div className="md:w-1/2 flex flex-col justify-center order-1 md:order-1">
         <h2 className="text-orange-400 text-2xl md:text-3xl font-serif mb-2">Why Choose Us</h2>
         <h3 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-          <span className="text-orange-400">Ex</span>ta ordinary taste
+          <span className="text-orange-400">Ex</span>tra ordinary taste
           <br />And Experienced
         </h3>
         
