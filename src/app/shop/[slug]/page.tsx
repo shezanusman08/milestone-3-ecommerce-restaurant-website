@@ -11,7 +11,7 @@ async function getData(slug: string) {
   const query = `*[_type == "product" && slug.current == "${slug}"][0]{
     _id,
     image,
-    price,
+    currentPrice,
     name,
     description,
     "slug": slug.current
@@ -118,13 +118,13 @@ export default async function ProductPage({
           </div>
 
           <div className="text-xl md:text-2xl font-bold text-orange-500">
-            ${data.price.toFixed(2)}
+            ${data.currentPrice.toFixed(2)}
           </div>
 
           <AddToCart
             name={data.name}
             description={data.description}
-            price={data.price}
+            price={data.currentPrice}
             image={urlFor(data.image[0]).url()}
             price_id={data._id}
             currency="USD"

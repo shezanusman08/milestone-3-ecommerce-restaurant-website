@@ -9,8 +9,11 @@ import { urlFor } from "@/sanity/lib/image";
 async function getData() {
   const query = `*[_type == "product"][0...30] {
     _id,
-    price,
+    currentPrice,
     name,
+    originalPrice,
+    available,
+    tags,
     "slug": slug.current,
     "imageUrl": image[0].asset->url
   }`;
@@ -92,12 +95,23 @@ export default async function ShopPage() {
                     </div>
                   </div>
                 </div>
+
                 <div className="p-4">
                   <h2 className="text-lg font-semibold mb-2">{product.name}</h2>
                   <div className="flex items-center gap-2">
-                    <span className="text-orange-500 font-bold">
-                      ${product.price.toFixed(2)}
+                    <span className="text-lg text-orange-500 font-semibold">
+                      ${product.currentPrice}
                     </span>
+                    {product.originalPrice && (
+                      <>
+                        <span className="text-sm text-gray-400 line-through">
+                          ${product.originalPrice}
+                        </span>
+                        <div className="text-sm text-green-500">
+                          {product.available ? "In Stock" : "Out of Stock"}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </Link>

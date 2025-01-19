@@ -1,16 +1,19 @@
 export interface SimplifiedProduct {
     _id: string;
-    price: number;
+    currentPrice: number;
     name: string;
     description: string;
     slug: string;
     imageUrl: string;
     price_id: string;
+    available: boolean;
+    originalPrice: number;
+    
 }
 
 export interface fullProduct {
     _id: string;
-    price: number;
+    currentPrice: number;
     name: string;
     description: string;
     slug: string;
