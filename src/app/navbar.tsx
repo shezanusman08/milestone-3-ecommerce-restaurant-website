@@ -1,21 +1,30 @@
 "use client";
 
-import { ShoppingCart } from 'lucide-react';
-import { Search } from 'lucide-react';
+import { ShoppingCart, Search } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import { FiMenu } from "react-icons/fi";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // State for search
+  const router = useRouter(); // For navigation
+
+  // Handle search submission
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      router.push(`/search?query=${searchQuery}`); // Redirect to search page with query
+    }
+  };
 
   return (
     <header className="bg-black text-white py-4">
       <div className="container mx-auto flex items-center justify-between px-4">
         {/* Logo */}
         <h1 className="text-xl font-bold text-orange-500">
-          Food<span className="text-white">luck</span>
+          Food<span className="text-white">tuck</span>
         </h1>
 
         {/* Desktop Navigation */}
@@ -24,12 +33,16 @@ const Navbar = () => {
             { label: "Home", path: "/" },
             { label: "Menu", path: "/menu" },
             { label: "Blog", path: "/blog" },
-            { label: "team", path: "/team" },
+            { label: "Team", path: "/team" },
             { label: "About", path: "/about" },
             { label: "Shop", path: "/shop" },
             { label: "Contact", path: "/contact" },
           ].map((item) => (
-            <Link key={item.label} href={item.path} className="hover:text-orange-500">
+            <Link
+              key={item.label}
+              href={item.path}
+              className="hover:text-orange-500"
+            >
               {item.label}
             </Link>
           ))}
@@ -40,14 +53,18 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="bg-transparent border border-orange-500 text-white px-4 py-1 rounded-full focus:outline-none"
           />
-          <button>
-            <span className="text-orange-500 text-lg"><Search/></span>
+          <button onClick={handleSearch}>
+            <span className="text-orange-500 text-lg">
+              <Search />
+            </span>
           </button>
           <button>
             <Link href="/cart" className="text-orange-500 text-lg">
-            <ShoppingCart />
+              <ShoppingCart />
             </Link>
           </button>
         </div>
@@ -65,7 +82,7 @@ const Navbar = () => {
                 { label: "Home", path: "/" },
                 { label: "Menu", path: "/menu" },
                 { label: "Blog", path: "/blog" },
-                { label: "Pages", path: "/pages" },
+                { label: "Team", path: "/team" },
                 { label: "About", path: "/about" },
                 { label: "Shop", path: "/shop" },
                 { label: "Contact", path: "/contact" },

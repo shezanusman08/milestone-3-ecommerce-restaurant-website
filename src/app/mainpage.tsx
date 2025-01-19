@@ -38,7 +38,7 @@ const MainPage = () => {
           {/* Button */}
           <Link href="/blog">
 
-          <button className="px-6 py-3 bg-yellow-400 text-black font-medium rounded-lg hover:bg-yellow-500 transition">
+          <button className="px-6 py-3 bg-orange-500 text-black font-medium rounded-lg hover:bg-orange-600 transition">
             Read More
           </button>
           </Link>
