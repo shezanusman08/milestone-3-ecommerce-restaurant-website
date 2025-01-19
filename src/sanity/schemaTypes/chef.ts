@@ -1,4 +1,4 @@
-export default {
+const chef = {
     name: 'chef',
     type: 'document',
     title: 'Chef',
@@ -47,4 +47,6 @@ export default {
         description: 'Availability status of the chef',
       },
     ],
-  };
+    };
+  
+  export default chef;
