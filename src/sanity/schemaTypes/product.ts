@@ -19,9 +19,31 @@ export const product ={
        },
         {
         title: 'Price',
-        name: 'price',
+        name: 'currentPrice',
         type: 'number',
         },
+        {
+            name: 'originalPrice',
+            type: 'number',
+            title: 'Original Price',
+            description: 'Price before discount (if any)',
+        },
+        {
+            name: 'tags',
+            type: 'array',
+            title: 'Tags',
+            of: [{ type: 'string' }],
+            options: {
+              layout: 'tags',
+            },
+            description: 'Tags for categorization (e.g., Best Seller, Popular, New)',
+          },
+                {
+        name: 'available',
+        type: 'boolean',
+        title: 'Available',
+        description: 'Availability status of the food item',
+      },
         {
         title: 'Image',
         name: 'image',

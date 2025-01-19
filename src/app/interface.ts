@@ -17,3 +17,15 @@ export interface fullProduct {
     image: { asset: { url: string } }[];
     
 }
+
+export interface Chef {
+    _id: string;
+    name: string;
+    position: string;
+    experience: number;
+    specialty: string;
+    imageUrl: { asset: { url: string } }[];
+    description: string;
+    bio: string;
+    available: boolean;
+}
